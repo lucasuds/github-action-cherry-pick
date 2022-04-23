@@ -38,6 +38,6 @@ git_setup
 git_cmd git remote update
 git_cmd git fetch --all
 git_cmd git checkout -b "${BRANCH_NEW}" origin/develop
-git_cmd git cherry-pick -n "${GITHUB_SHA}"
 git_cmd git push -u origin "${BRANCH_NEW}"
-git_cmd hub pull-request -b "develop" -h "${BRANCH_NEW}" -l "${INPUT_PR_LABELS}" -a "${GITHUB_ACTOR}" -m "\"AUTO: ${PR_TITLE}\""
+git_cmd git checkout -b origin/develop
+git_cmd git hub "https://github.com/${USER_GITHUB}/${PROJECT_NAME}/commit/${GITHUB_SHA}"
