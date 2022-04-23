@@ -34,7 +34,9 @@ fi
 
 PR_TITLE=$(git log -1 --format="%s" $GITHUB_SHA)
 
+echo "Starting git config"
 git_setup
+echo "Doing git commands"
 git_cmd git remote update
 git_cmd git fetch --all
 git_cmd git checkout -b "${BRANCH_NEW}" origin/develop
