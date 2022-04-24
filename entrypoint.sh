@@ -41,11 +41,13 @@ echo "Atualizando o git na origin"
 git_cmd git remote update
 echo "Fetching todas branchs"
 git_cmd git fetch --all
+echo "Criando a branch do cherry-pick"
+git_cmd git checkout -b ${BRANCH_NEW}
+echo "Criando a branch do cherry-pick"
+git_cmd git push
 echo "Troca para develop"
 git_cmd git checkout -b develop
 echo "Realizando o cherry-pick"
 git_cmd hub cherry-pick "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}"
-echo "Criando a branch do cherry-pick"
-git_cmd git checkout -b ${BRANCH_NEW}
-echo "Atualizando todas as branchs"
-git_cmd git push --all
+echo "Atualizando a branch develop"
+git_cmd git push
