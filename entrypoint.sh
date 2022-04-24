@@ -43,4 +43,4 @@ git_cmd git fetch --all
 git_cmd git checkout -b "${BRANCH_NEW}" origin/develop
 git_cmd git push -u origin "${BRANCH_NEW}"
 git_cmd git checkout -b origin/develop
-git_cmd hub cherry-pick "https://github.com/${USER_GITHUB}/${PROJECT_NAME}/commit/${GITHUB_SHA}"
+git_cmd hub cherry-pick "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}"
