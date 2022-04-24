@@ -42,7 +42,7 @@ git_cmd git remote update
 echo "Fetching todas branchs"
 git_cmd git fetch --all
 echo "Troca para develop"
-git_cmd git checkout -b origin/develop
+git_cmd git checkout -b develop
 echo "Realizando o cherry-pick"
 git_cmd hub cherry-pick "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}"
 echo "Criando a branch do cherry-pick"
