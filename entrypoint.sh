@@ -24,7 +24,7 @@ git_cmd() {
   fi
 }
 
-BRANCH_NEW="cherry-pick/$GITHUB_SHA"
+BRANCH_NEW="cherry-pick/cherry-pick-$GITHUB_SHA"
 
 MESSAGE=$(git log -1 $GITHUB_SHA | grep "AUTO" | wc -l)
 
@@ -42,7 +42,7 @@ git_cmd git remote update
 echo "Fetching todas branchs"
 git_cmd git fetch --all
 echo "Troca para develop"
-git_cmd git pull origin/develop
+git_cmd git pull origin develop
 git_cmd git checkout -b develop
 echo "Realizando o cherry-pick"
 git_cmd hub cherry-pick "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}"
