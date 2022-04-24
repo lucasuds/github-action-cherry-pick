@@ -35,12 +35,17 @@ fi
 
 PR_TITLE=$(git log -1 --format="%s" $GITHUB_SHA)
 
-echo "Starting git config"
+echo "Configurando o git"
 git_setup
-echo "Doing git commands"
+echo "Atualizando o git na origin"
 git_cmd git remote update
+echo "Fetching todas branchs"
 git_cmd git fetch --all
-git_cmd git checkout -b "${BRANCH_NEW}" origin/develop
-git_cmd git push -u origin "${BRANCH_NEW}"
+echo "Troca para develop"
 git_cmd git checkout -b origin/develop
+echo "Realizando o cherry-pick"
 git_cmd hub cherry-pick "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}"
+echo "Criando a branch do cherry-pick"
+git_cmd git checkout -b ${BRANCH_NEW}
+echo "Atualizando todas as branchs"
+git_cmd git push --all
