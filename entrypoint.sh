@@ -24,7 +24,7 @@ git_cmd() {
   fi
 }
 
-BRANCH_NEW="cherry-pick/auto-$GITHUB_SHA"
+BRANCH_NEW="cherry-pick/$GITHUB_SHA"
 
 MESSAGE=$(git log -1 $GITHUB_SHA | grep "AUTO" | wc -l)
 
